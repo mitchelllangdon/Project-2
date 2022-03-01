@@ -23,6 +23,7 @@ from CreatePages import CreateMultiplePages # Imported class module from Python 
 from CreatePages import CreateMultiplePages
 import Technical
 import Sentiment
+import StockPurchase
 
 # Create an application instances
 app = CreateMultiplePages()
@@ -37,6 +38,7 @@ st.markdown("""Automate your stock trading using the Trader1000.""")
 # Add pages based off custom imports above
 app.add_page("Technical Analysis", Technical.app)
 app.add_page("Sentiment Analysis", Sentiment.app)
+app.add_page("Stock Purchase Tool", StockPurchase.app)
 
 # The main application
 app.run()

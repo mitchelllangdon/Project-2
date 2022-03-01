@@ -3,7 +3,7 @@ This file is used to produce multiple Streamlit applications that allows
 for more interactivity with the Streamlit application.
 
 """
-
+import streamlit as st
 # Define the multipage class to manage the multiple apps in our program 
 class CreateMultiplePages: 
     """Framework for combining multiple streamlit applications."""
