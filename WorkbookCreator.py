@@ -24,6 +24,7 @@ from CreatePages import CreateMultiplePages
 import Technical
 import Sentiment
 import StockPurchase
+import AutomatedWeb
 
 # Create an application instances
 app = CreateMultiplePages()
