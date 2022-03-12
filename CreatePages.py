@@ -4,6 +4,7 @@ for more interactivity with the Streamlit application.
 
 """
 import streamlit as st
+import os
 # Define the multipage class to manage the multiple apps in our program 
 class CreateMultiplePages: 
     """Framework for combining multiple streamlit applications."""
@@ -23,6 +24,7 @@ class CreateMultiplePages:
                 "function": func
             })
 
+    
     def run(self):
         # Drodown to select the page to run  
         page = st.sidebar.selectbox(
