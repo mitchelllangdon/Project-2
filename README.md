@@ -41,30 +41,38 @@ There were two primary data sources used to collect data for our analysis, inclu
 
 Deep learning models and linear regression models were utilised to inform trading decisions and make predictions. The anamoly detector (using linear regression) shows prices on a time-series that warrant further investigation. See the graphic below.
 
-![API Call Using our application](Images_readme/Anomaly.gif)
+![Anomaly](Images_readme/Anomaly.gif)
 
 
 The deep learning model uses a Long Short Term Memory neural net to make predictions. The key concern with the deep learning model is overfitting (or have we simply trained the model efficiently?)... 
 
-![API Call Using our application](Images_readme/Neural_Net.png)
+![Neural Net](Images_readme/Neural_Net.png)
 
 We then also use this information to backtest specific strategies. Take for example, the exponential moving average strategy for TSLA:
 
-![API Call Using our application](Images_readme/Backtesting.png)
+![Backtesting](Images_readme/Backtesting.png)
 
 Lastly... what's everyone saying about the stock? What are the key words that constantly arise in news articles? Our natural language processing techniques can tell you: 
 
-![API Call Using our application](Images_readme/Words.png)
+![NLP](Images_readme/Words.png)
 
 We could then make a trading decision. Let's go ahead and buy Tesla given our predictions, strategies and sentiment have confirmed our purchase:
 ​
-![API Call Using our application](Images_readme/Buy_alpaca.gif)
+![Buy stocks](Images_readme/Buy_alpaca.gif)
+
+### Automated trading
+
+A separate workbook was created to automate trading based off a number of machine learning techniques. Here's a snapshot of how  an algorithm looks:
+
+![Automated Trading](Images_readme/Algo_Screenshot.gif)
 
 # Future opportunities
 
  * With additional time, we could explore a fully automated trading strategy that combines technical, sentiment and machine learning techniques to make trading decisions. 
 
 * Enhance the processing power of the dashboard. When loading a stocks information, the API calls to the stock news API can take minutes to load, leading to a poor experience. Also running a dynamic neural network takes up quite a significant amount of processing power.
+
+* Explore automated web browsing using Selenium to trade on Australian stocks.
 
 
 
