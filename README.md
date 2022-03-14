@@ -74,6 +74,15 @@ A separate workbook was created to automate trading based off a number of machin
 
 * Explore automated web browsing using Selenium to trade on Australian stocks.
 
+* Deploy the dashboard for anyone's use. Given environment variables need to be loaded, it is difficult to capture these from all users. Therefore the dashboard would have to rely on Selenium to login. 
+
+# How to run this workbook
+
+* Clone this repository to your local machine
+* Ensure all packages are installed
+* Navigate to the folder where the repository is stored and run 'Streamlit run WorkbookCreator.py'
+
+
 
 
 
