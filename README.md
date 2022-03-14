@@ -15,7 +15,7 @@
 # Project Description/Outline
 ​
 - ### Could we create a technical stock analysis, for profitbale trades?
-​
+
 - ### Could we create a automated trading bot for profitable passive income?
 
 - ### Can a tool be built that is dynamic, that produces meaningful and actionable insights for potential investors?
@@ -30,11 +30,6 @@ There were two primary data sources used to collect data for our analysis, inclu
  * Yahoo Finance API
 
  API calls were made to each of the data sources, to create a dynamic method of capturing and presenting data back to the individual via Streamlit (Python dashboard application).
-
-
-​
-​
- 
 ​
 ## We have data ! Lets see what we can do with it.
 ​ ![API Call Using our application](Images_readme/Search_Finance.gif)
@@ -57,9 +52,19 @@ We then also use this information to backtest specific strategies. Take for exam
 
 ![API Call Using our application](Images_readme/Backtesting.png)
 
+Lastly... what's everyone saying about the stock? What are the key words that constantly arise in news articles? Our natural language processing techniques can tell you: 
+
+![API Call Using our application](Images_readme/Words.png)
+
 We could then make a trading decision. Let's go ahead and buy Tesla given our predictions, strategies and sentiment have confirmed our purchase:
 ​
+![API Call Using our application](Images_readme/Buy_alpaca.gif)
 
+# Future opportunities
+
+ * With additional time, we could explore a fully automated trading strategy that combines technical, sentiment and machine learning techniques to make trading decisions. 
+
+* Enhance the processing power of the dashboard. When loading a stocks information, the API calls to the stock news API can take minutes to load, leading to a poor experience. Also running a dynamic neural network takes up quite a significant amount of processing power.
 
 
 
