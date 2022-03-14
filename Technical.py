@@ -26,6 +26,19 @@ import math
 import json
 import requests
 import os
+from wordcloud import WordCloud
+from collections import Counter
+from nltk import ngrams
+import itertools
+from nltk.tokenize import word_tokenize, sent_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer, PorterStemmer
+from string import punctuation
+import re
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+plt.style.use("seaborn-whitegrid")
+import matplotlib as mpl
 
 
 # Call class module and import workbooks
@@ -870,3 +883,65 @@ def app():
                 st.table(sentiment_df)
             except:
                 None
+            
+            st.markdown("In addition to deriving sentiment on your stock of choice, here are the key words that are most commonly referred to about your stock: ")
+
+            
+            df_text = df['text'].to_frame()
+
+            # Instantiate the lemmatizer
+            lemmatizer = WordNetLemmatizer()
+
+            # Create a list of stopwords
+            stop_words = list(stopwords.words("english"))
+
+            # Additional stopwords
+            additional_stopwords = ["said", "also"]
+
+            # Expand the default stopwords list if necessary
+            for stop in additional_stopwords:
+
+                # Append list
+                stop_words.append(stop)
+                
+            # Complete the tokenizer function
+            def tokenizer(text):
+                """Tokenizes text."""
+
+                # Remove the punctuation from text
+                regex = re.compile("[^a-zA-Z ]")
+                re_clean = regex.sub("", text)
+
+                # Create a tokenized list of the words
+                words = word_tokenize(re_clean)
+
+                # Lemmatize words into root words
+                lem = [lemmatizer.lemmatize(word) for word in words]
+
+                # Remove the stop words
+                tokens = [word.lower() for word in words if word.lower() not in stop_words]
+
+                # Return output
+                return tokens
+
+            # Create new column overlaying the tokenizer function
+            df_text["tokenize"] = df_text["text"].apply(lambda x: tokenizer(x))
+
+            # Generate the words within the dataframe
+            stock_words = tokenizer("".join(str(df_text["tokenize"].tolist())))
+
+            # Create list of words in stock_words
+            stock_words_list  = " ".join([str(x) for x in stock_words])
+
+            mpl.rcParams["figure.figsize"] = [20.0, 10.0]
+
+            # Generate the word cloud
+            wc = WordCloud().generate(stock_words_list)
+
+            # Turns off errors for when plotting chart is required
+            st.set_option('deprecation.showPyplotGlobalUse', False)
+            plt.imshow(wc)
+
+            # Show the image
+            
+            st.pyplot()
